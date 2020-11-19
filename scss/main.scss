@@ -1,3 +1,316 @@
+@mixin media-lg {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  background-color: hsl(217, 28%, 15%);
+  letter-spacing: 1px;
+}
+
+.width-wrapper {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.heading {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.heading-1 {
+  font-size: 1.75rem;
+  line-height: 1.5;
+
+  @include media-lg {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-2 {
+  font-size: 1.5rem;
+
+  @include media-lg {
+    font-size: 2rem;
+  }
+}
+
+.heading-3 {
+  font-size: 1.25rem;
+
+  @include media-lg {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-primary {
+  background-image: linear-gradient(
+    90deg,
+    hsl(176, 68%, 64%) 0%,
+    hsl(198, 60%, 50%) 51%,
+    hsl(176, 68%, 64%) 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  padding: 1rem 4rem;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+}
+
+.main-background {
+  background-color: hsl(218, 28%, 13%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+
+  .logo-container {
+    .logo {
+      width: 160px;
+    }
+  }
+
+  .nav {
+    &-links {
+      display: flex;
+      list-style: none;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        margin-left: 4rem;
+      }
+    }
+  }
+}
+
+.hero {
+  margin: 3rem auto 0;
+  padding: 0 2rem 150px;
+  text-align: center;
+  background: url(../images/bg-curvy-desktop.svg) no-repeat bottom center;
+  background-size: 100vw 400px;
+
+  .img-container {
+    margin: 0 auto 4rem;
+    max-width: 1000px;
+
+    .hero-img {
+      margin: auto;
+      max-width: 100%;
+      display: block;
+    }
+  }
+
+  .heading {
+    max-width: 750px;
+    margin: 2rem auto;
+  }
+
+  p {
+    max-width: 550px;
+    margin: 2rem auto;
+    line-height: 1.5;
+  }
+}
+
+.features {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  padding: 0 2rem;
+
+  .grid {
+    @include media-lg {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 120px;
+    }
+
+    .grid-item {
+      margin-bottom: 5rem;
+
+      .icon-container {
+        margin-bottom: 2rem;
+        height: 100px;
+      }
+    }
+  }
+}
+
+.productive {
+  padding: 2rem;
+  margin-bottom: 3rem;
+
+  @include media-lg {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 80px;
+  }
+
+  .img-container {
+    width: 100%;
+    margin-bottom: 5rem;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .content {
+    margin-bottom: 5rem;
+
+    .heading {
+      max-width: 500px;
+    }
+
+    p {
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: hsl(176, 68%, 64%);
+      text-decoration: none;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid hsl(176, 68%, 64%);
+
+      img {
+        height: 17px;
+      }
+    }
+  }
+}
+
+.testimonials {
+  background: url(../images/bg-quotes.png) no-repeat;
+  background-position: 2rem top;
+  padding: 2rem;
+  margin-bottom: 3rem;
+
+  @include media-lg {
+    background-position: left top;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0.5rem;
+  }
+
+  .card {
+    background-color: hsl(219, 30%, 18%);
+    max-width: 440px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+
+    @include media-lg {
+      margin-bottom: 0;
+    }
+
+    .comment {
+      margin-bottom: 2rem;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+
+      &-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      &-name {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .position {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.call-out {
+  background-image: linear-gradient(0deg, hsl(216, 53%, 9%) 50%, hsl(218, 28%, 13%) 50%);
+  padding: 2rem;
+
+  .card {
+    background-color: hsl(219, 30%, 18%);
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px -5px #000;
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .form {
+      max-width: 100%;
+
+      @include media-lg {
+        display: flex;
+        max-width: 90%;
+        margin: auto;
+      }
+
+      .email {
+        display: block;
+        width: 100%;
+        margin-right: 2rem;
+        padding: 0.85rem 2rem;
+        border-radius: 2rem;
+        outline: none;
+        border: none;
+        margin-bottom: 1rem;
+
+        @include media-lg {
+          margin-bottom: 0;
+        }
+      }
+
+      .btn-primary {
+        max-width: 100%;
+        padding: 1rem 1.5rem;
+        width: 100%;
+
+        @include media-lg {
+          max-width: 250px;
+        }
+      }
+    }
+  }
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
