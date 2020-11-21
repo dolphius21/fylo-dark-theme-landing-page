@@ -62,7 +62,7 @@ body {
   );
   background-size: 200% auto;
   color: #fff;
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
   border: none;
   border-radius: 2rem;
   font-weight: 700;
@@ -87,7 +87,11 @@ body {
 
   .logo-container {
     .logo {
-      width: 160px;
+      width: 100px;
+
+      @include media-lg {
+        width: 160px;
+      }
     }
   }
 
@@ -100,7 +104,13 @@ body {
         display: block;
         text-decoration: none;
         color: #fff;
-        margin-left: 4rem;
+        margin-left: 2rem;
+        font-size: 0.8rem;
+
+        @include media-lg {
+          margin-left: 4rem;
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -111,7 +121,11 @@ body {
   padding: 0 2rem 150px;
   text-align: center;
   background: url(../images/bg-curvy-desktop.svg) no-repeat bottom center;
-  background-size: 100vw 400px;
+  background-size: 800px 400px;
+
+  @include media-lg {
+    background-size: 100vw 400px;
+  }
 
   .img-container {
     margin: 0 auto 4rem;
@@ -224,6 +238,7 @@ body {
     padding: 2rem;
     border-radius: 0.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 0 10px -8px #fff;
 
     @include media-lg {
       margin-bottom: 0;
@@ -264,10 +279,10 @@ body {
     background-color: hsl(219, 30%, 18%);
     max-width: 1000px;
     margin: auto;
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 10px -5px #000;
+    box-shadow: 0 7px 10px -5px #000;
 
     p {
       max-width: 800px;
@@ -283,18 +298,37 @@ body {
         margin: auto;
       }
 
-      .email {
-        display: block;
+      .form-group {
         width: 100%;
-        margin-right: 2rem;
-        padding: 0.85rem 2rem;
-        border-radius: 2rem;
-        outline: none;
-        border: none;
-        margin-bottom: 1rem;
+        margin-right: 1rem;
+        position: relative;
 
-        @include media-lg {
+        .email {
+          display: block;
+          width: 100%;
+          padding: 0.85rem 2rem;
+          border-radius: 2rem;
+          outline: none;
+          border: none;
+          margin-bottom: 0.25rem;
+
+          @include media-lg {
+            margin-bottom: 0;
+          }
+        }
+
+        .error-message {
+          display: none;
+          color: hsl(0, 100%, 63%);
+          font-size: 0.8rem;
           margin-bottom: 0;
+          animation: show 0.5s ease-out both;
+
+          @include media-lg {
+            position: absolute;
+            left: 20px;
+            top: 50px;
+          }
         }
       }
 
@@ -302,8 +336,10 @@ body {
         max-width: 100%;
         padding: 1rem 1.5rem;
         width: 100%;
+        margin-top: 1rem;
 
         @include media-lg {
+          margin-top: 0;
           max-width: 250px;
         }
       }
@@ -311,11 +347,146 @@ body {
   }
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+.footer {
+  background-color: hsl(216, 53%, 9%);
+  padding: 2rem;
 
-  a {
-    color: hsl(228, 45%, 44%);
+  .logo-container {
+    margin-bottom: 2rem;
+
+    .logo {
+      width: 210px;
+
+      @include media-lg {
+        width: 160px;
+      }
+    }
+  }
+
+  .flex {
+    @include media-lg {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .location {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      max-width: 400px;
+
+      .icon-container {
+        width: 45px;
+        margin-right: 2rem;
+        margin-top: 0.25rem;
+
+        .location-icon {
+          width: 18px;
+        }
+      }
+    }
+
+    .contact {
+      padding-bottom: 2rem;
+
+      .phone,
+      .email {
+        display: flex;
+        margin-bottom: 2rem;
+
+        .icon-container {
+          width: 45px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+
+    .site-links {
+      margin-bottom: 2rem;
+      @include media-lg {
+        display: flex;
+        justify-content: space-between;
+        width: 250px;
+      }
+
+      .list {
+        margin-bottom: 2rem;
+
+        .link {
+          list-style: none;
+          margin-bottom: 1rem;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+
+          a:hover {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .social-icons {
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      width: 150px;
+      margin: auto;
+      margin-bottom: 2rem;
+
+      @include media-lg {
+        margin: 0;
+        align-self: start;
+      }
+
+      a {
+        color: #fff;
+        width: 36px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        display: block;
+        padding: 6px 8.5px;
+        transition: all 0.5s ease-out;
+      }
+
+      a:hover {
+        color: hsl(176, 68%, 64%);
+        border: 1px solid hsl(176, 68%, 64%);
+      }
+    }
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+
+    a {
+      font-size: 11px;
+      color: hsl(176, 68%, 64%);
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 2;
   }
 }

@@ -59,7 +59,7 @@ body {
   background-image: linear-gradient(90deg, #65e2d9 0%, #339ecc 51%, #65e2d9 100%);
   background-size: 200% auto;
   color: #fff;
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
   border: none;
   border-radius: 2rem;
   font-weight: 700;
@@ -91,7 +91,13 @@ body {
 }
 
 .header .logo-container .logo {
-  width: 160px;
+  width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .header .logo-container .logo {
+    width: 160px;
+  }
 }
 
 .header .nav-links {
@@ -105,7 +111,15 @@ body {
   display: block;
   text-decoration: none;
   color: #fff;
-  margin-left: 4rem;
+  margin-left: 2rem;
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .header .nav-links a {
+    margin-left: 4rem;
+    font-size: 1rem;
+  }
 }
 
 .hero {
@@ -113,7 +127,13 @@ body {
   padding: 0 2rem 150px;
   text-align: center;
   background: url(../images/bg-curvy-desktop.svg) no-repeat bottom center;
-  background-size: 100vw 400px;
+  background-size: 800px 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background-size: 100vw 400px;
+  }
 }
 
 .hero .img-container {
@@ -243,6 +263,8 @@ body {
   padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
+  -webkit-box-shadow: 0 0 10px -8px #fff;
+          box-shadow: 0 0 10px -8px #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -290,11 +312,11 @@ body {
   background-color: #202a3c;
   max-width: 1000px;
   margin: auto;
-  padding: 2rem;
+  padding: 3rem;
   text-align: center;
   border-radius: 0.5rem;
-  -webkit-box-shadow: 0 4px 10px -5px #000;
-          box-shadow: 0 4px 10px -5px #000;
+  -webkit-box-shadow: 0 7px 10px -5px #000;
+          box-shadow: 0 7px 10px -5px #000;
 }
 
 .call-out .card p {
@@ -316,20 +338,42 @@ body {
   }
 }
 
-.call-out .card .form .email {
+.call-out .card .form .form-group {
+  width: 100%;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.call-out .card .form .form-group .email {
   display: block;
   width: 100%;
-  margin-right: 2rem;
   padding: 0.85rem 2rem;
   border-radius: 2rem;
   outline: none;
   border: none;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 @media screen and (min-width: 768px) {
-  .call-out .card .form .email {
+  .call-out .card .form .form-group .email {
     margin-bottom: 0;
+  }
+}
+
+.call-out .card .form .form-group .error-message {
+  display: none;
+  color: #ff4242;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  -webkit-animation: show 0.5s ease-out both;
+          animation: show 0.5s ease-out both;
+}
+
+@media screen and (min-width: 768px) {
+  .call-out .card .form .form-group .error-message {
+    position: absolute;
+    left: 20px;
+    top: 50px;
   }
 }
 
@@ -337,20 +381,205 @@ body {
   max-width: 100%;
   padding: 1rem 1.5rem;
   width: 100%;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {
   .call-out .card .form .btn-primary {
+    margin-top: 0;
     max-width: 250px;
   }
 }
 
-.attribution {
+.footer {
+  background-color: #0b1523;
+  padding: 2rem;
+}
+
+.footer .logo-container {
+  margin-bottom: 2rem;
+}
+
+.footer .logo-container .logo {
+  width: 210px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .logo-container .logo {
+    width: 160px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.footer .flex .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.footer .flex .location .icon-container {
+  width: 45px;
+  margin-right: 2rem;
+  margin-top: 0.25rem;
+}
+
+.footer .flex .location .icon-container .location-icon {
+  width: 18px;
+}
+
+.footer .flex .contact {
+  padding-bottom: 2rem;
+}
+
+.footer .flex .contact .phone,
+.footer .flex .contact .email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.footer .flex .contact .phone .icon-container,
+.footer .flex .contact .email .icon-container {
+  width: 45px;
+}
+
+.footer .flex .contact .phone a,
+.footer .flex .contact .email a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer .flex .site-links {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .flex .site-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 250px;
+  }
+}
+
+.footer .flex .site-links .list {
+  margin-bottom: 2rem;
+}
+
+.footer .flex .site-links .list .link {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.footer .flex .site-links .list .link a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer .flex .site-links .list .link a:hover {
+  font-weight: 700;
+}
+
+.footer .flex .social-icons {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 150px;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .flex .social-icons {
+    margin: 0;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+  }
+}
+
+.footer .flex .social-icons a {
+  color: #fff;
+  width: 36px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  padding: 6px 8.5px;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.footer .flex .social-icons a:hover {
+  color: #65e2d9;
+  border: 1px solid #65e2d9;
+}
+
+.footer .attribution {
   font-size: 11px;
   text-align: center;
 }
 
-.attribution a {
-  color: #3e52a3;
+.footer .attribution a {
+  font-size: 11px;
+  color: #65e2d9;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 2;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 2;
+  }
 }
 /*# sourceMappingURL=main.css.map */
