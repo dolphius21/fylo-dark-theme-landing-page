@@ -122,6 +122,10 @@ body {
   }
 }
 
+.header .nav-links a:hover {
+  color: #65e2d9;
+}
+
 .hero {
   margin: 3rem auto 0;
   padding: 0 2rem 150px;
@@ -241,7 +245,7 @@ body {
   background: url(../images/bg-quotes.png) no-repeat;
   background-position: 2rem top;
   padding: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0 auto 3rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -259,17 +263,17 @@ body {
 
 .testimonials .card {
   background-color: #202a3c;
-  max-width: 440px;
   padding: 2rem;
   border-radius: 0.5rem;
-  margin-bottom: 2rem;
   -webkit-box-shadow: 0 0 10px -8px #fff;
           box-shadow: 0 0 10px -8px #fff;
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .testimonials .card {
-    margin-bottom: 0;
+    margin: 0 1rem;
+    max-width: 440px;
   }
 }
 
